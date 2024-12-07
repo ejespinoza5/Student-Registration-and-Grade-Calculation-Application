@@ -1,0 +1,28 @@
+<div *ngIf="estudiantes.length > 0" class="mt-4 p-6 bg-gray-50 shadow-lg rounded-lg">
+  <h2 class="text-2xl font-bold mb-4 text-gray-700 text-center">Datos de los Estudiantes</h2>
+  <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+    <thead class="bg-gray-200 text-gray-700">
+      <tr>
+        <th class="py-3 px-8 text-left text-lg w-2/5">Nombre</th>
+        <th class="py-3 px-4 text-center text-sm w-1/10">Primer Parcial</th>
+        <th class="py-3 px-4 text-center text-sm w-1/10">Segundo Parcial</th>
+        <th class="py-3 px-4 text-center text-sm w-1/10">Tercer Parcial</th>
+        <th class="py-3 px-4 text-center text-sm w-1/10">Promedio</th>
+        <th class="py-3 px-4 text-center text-sm w-1/10">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes" class="border-b last:border-none">
+        <td class="border px-8 py-4 text-lg font-medium text-gray-800">{{ estudiante.nombre }}</td>
+        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.primerParcial }}</td>
+        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.segundoParcial }}</td>
+        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.tercerParcial }}</td>
+        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.promedio }}</td>
+        <td class="border px-4 py-2 text-center text-sm font-semibold {{ estudiante.estado === 'Aprobado' ? 'text-green-600' :
+        'text-red-600' }}">
+          {{ estudiante.estado }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
