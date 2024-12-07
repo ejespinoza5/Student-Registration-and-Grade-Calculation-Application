@@ -1,28 +1,30 @@
-<div *ngIf="estudiantes.length > 0" class="mt-4 p-6 bg-gray-50 shadow-lg rounded-lg">
-  <h2 class="text-2xl font-bold mb-4 text-gray-700 text-center">Datos de los Estudiantes</h2>
-  <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
-    <thead class="bg-gray-200 text-gray-700">
-      <tr>
-        <th class="py-3 px-8 text-left text-lg w-2/5">Nombre</th>
-        <th class="py-3 px-4 text-center text-sm w-1/10">Primer Parcial</th>
-        <th class="py-3 px-4 text-center text-sm w-1/10">Segundo Parcial</th>
-        <th class="py-3 px-4 text-center text-sm w-1/10">Tercer Parcial</th>
-        <th class="py-3 px-4 text-center text-sm w-1/10">Promedio</th>
-        <th class="py-3 px-4 text-center text-sm w-1/10">Estado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let estudiante of estudiantes" class="border-b last:border-none">
-        <td class="border px-8 py-4 text-lg font-medium text-gray-800">{{ estudiante.nombre }}</td>
-        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.primerParcial }}</td>
-        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.segundoParcial }}</td>
-        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.tercerParcial }}</td>
-        <td class="border px-4 py-2 text-center text-sm text-gray-600">{{ estudiante.promedio }}</td>
-        <td class="border px-4 py-2 text-center text-sm font-semibold {{ estudiante.estado === 'Aprobado' ? 'text-green-600' :
-        'text-red-600' }}">
-          {{ estudiante.estado }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div *ngIf="estudiantes.length > 0" class="mt-4 p-4 bg-gray-100">
+  <h2 class="text-xl font-bold mb-2">Datos de los Estudiantes</h2>
+  <!-- Contenedor que permite desplazamiento horizontal -->
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white table-auto">
+      <thead>
+        <tr class="bg-gray-200">
+          <!-- Nombres con un tamaño más grande en móviles -->
+          <th class="w-1/2 py-3 px-4 text-left text-sm sm:text-base font-medium">Nombre</th>
+          <!-- Notas más pequeñas en móviles -->
+          <th class="w-1/12 py-2 px-4 text-left text-xs sm:text-sm font-medium">Primer Parcial</th>
+          <th class="w-1/12 py-2 px-4 text-left text-xs sm:text-sm font-medium">Segundo Parcial</th>
+          <th class="w-1/12 py-2 px-4 text-left text-xs sm:text-sm font-medium">Tercer Parcial</th>
+          <th class="w-1/12 py-2 px-4 text-left text-xs sm:text-sm font-medium">Promedio</th>
+          <th class="w-1/12 py-2 px-4 text-left text-xs sm:text-sm font-medium">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estudiante of estudiantes" class="border-t">
+          <td class="py-3 px-4 text-left text-sm sm:text-base">{{ estudiante.nombre }}</td>
+          <td class="py-2 px-4 text-left text-xs sm:text-sm">{{ estudiante.primerParcial }}</td>
+          <td class="py-2 px-4 text-left text-xs sm:text-sm">{{ estudiante.segundoParcial }}</td>
+          <td class="py-2 px-4 text-left text-xs sm:text-sm">{{ estudiante.tercerParcial }}</td>
+          <td class="py-2 px-4 text-left text-xs sm:text-sm">{{ estudiante.promedio }}</td>
+          <td class="py-2 px-4 text-left text-xs sm:text-sm">{{ estudiante.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
